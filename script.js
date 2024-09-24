@@ -20,7 +20,7 @@ const products = [
   },
   {
     id: 2,
-    name: "elene",
+    name: "boat",
     description: "image of a elene",
     cost: 90.54,
     image: ["item2image1.jpg", "item2image2.jpg"],
@@ -28,7 +28,7 @@ const products = [
   },
   {
     id: 3,
-    name: "groot",
+    name: "boat2",
     description: "I am Groot",
     cost: 50.54,
     image: ["picture2image1.jpg", "picture2image2.jpg", "picture2image3.jpg"],
@@ -36,7 +36,7 @@ const products = [
   },
   {
     id: 4,
-    name: "sexy",
+    name: "boat3",
     description: "image of a beautiful girl",
     cost: 60.54,
     image: ["picture3image1.jpg", "picture3image2.jpg", "picture3image3.jpg"],
@@ -44,7 +44,7 @@ const products = [
   },
   {
     id: 5,
-    name: "elene",
+    name: "boat4",
     description: "image of a elene",
     cost: 90.54,
     image: ["picture4image1.jpg", "picture4image2.jpg", "picture4image3.jpg"],
@@ -147,7 +147,8 @@ images.forEach((img) => {
       z = 0;
     });
   });
-
+  const backToLoginBtn = document.getElementById("back-to-login");
+const closeAccountBtn = document.getElementById("close-account")
 const totalBtc = document.getElementById("total-btc")
 const navbarLoginBtn = document.getElementById("navbar-login-btn");
 const submitLogin = document.getElementById("fill-login");
@@ -312,10 +313,12 @@ hideCart.addEventListener("click", () => {
   cartBoolean = !cartBoolean;
   if (cartBoolean === true) {
     cart.style.display = "block";
+    main.classList.add("hide-product");
     hideCart.textContent = "hide cart";
   } else {
     cart.style.display = "none";
     hideCart.textContent = "show cart";
+    main.classList.remove("hide-product")
   }
 });
 checkoutBtn.addEventListener("click", () => {
@@ -370,9 +373,9 @@ const addItem = (el) => {
   const { id, name, cost } = tempItem;
   items.push(tempItem);
 
-  item[name] = (item[name] || 0) + 1;
+  item[id] = (item[id] || 0) + 1;
 
-  const count = item[name];
+  const count = item[id];
 
   if (count === 1) {
     listArr.push(tempItem);
@@ -405,9 +408,9 @@ const selectedAddItem = (el) => {
   const { id, name, cost } = tempItem;
   items.push(tempItem);
 
-  item[name] = (item[name] || 0) + 1;
+  item[id] = (item[id] || 0) + 1;
 
-  const count = item[name];
+  const count = item[id];
 
   if (count === 1) {
     listArr.push(tempItem);
@@ -459,6 +462,7 @@ const showShop =()=>{
     navbar.innerHTML =`<i class="fa-solid fa-bars"></i>`
 }
 const showCart =()=>{
+    main.classList.add("hide-product");
     hideCart.style.display = "block";
     hideCart.textContent = "hide cart";
     updateCartList(listArr);
@@ -492,10 +496,14 @@ const logginInFunc =(el)=>{
     navbarLoginBtn.textContent = editedEmail;
     navbarLoginBtn.innerHTML = editedEmail;
     navbarLoginBtn.disabled = true;
-    navbarLoginBtn.style.color = "black";
+    navbarLoginBtn.style.color = "white";
     createOrLogin.innerHTML += `<div id="logging-in">logging in...</div>`
     accountContainer.innerHTML +=`<div id="logging-in">logging in...</div>`;
     setTimeout(closeCreateAccount, 2000)
     accountCreatedSuccessfully = true;
 
 }
+closeAccountBtn.addEventListener('click', closeCreateAccount)
+backToLoginBtn.addEventListener("click", closeLogin)
+
+
