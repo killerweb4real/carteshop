@@ -124,7 +124,6 @@ images.forEach((img) => {
       const { id, name, description, cost, image, promo } = foundImage;
   
       selectedItem.innerHTML = ` 
-        
           <div id="selected">
           <button onclick="toStore()" id="back-to-store"><i class="fa-solid fa-xmark"></i></button>
             <img id="selected-image" src="${image[0]}" />
@@ -430,22 +429,30 @@ const selectedAddItem = (el) => {
 
 
 const closeCreateAccount =()=>{
-createAccount.style.display = "none"
+createAccount.style.display = "none";
+
 }
 const closeLogin =()=>{
+  
 accountContainer.style.display = "none"
 createOrLogin.style.display = "block"
+
+
 }
-const openCreateAccount = ()=>{
+const openCreateAccount = ()=>{ 
+  
     createOrLogin.style.display = "none";
     accountContainer.style.display="block"
+    
+
 }
 const openCreateOrLogin = ()=>{
     accountContainer.style.display = "none";
     createOrLogin.style.display = "block";
+    
 }
 const openLoginPage = ()=>{
-   
+ 
     createAccount.style.display = "block";
     
     navContainer.classList.remove("move-navbar")
@@ -505,5 +512,7 @@ const logginInFunc =(el)=>{
 }
 closeAccountBtn.addEventListener('click', closeCreateAccount)
 backToLoginBtn.addEventListener("click", closeLogin)
+
+
 
 
