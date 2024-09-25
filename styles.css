@@ -60,9 +60,16 @@ header h1{
     margin: 50px auto 0 auto;
 }
 #back-to-login, #close-account{
-    font-size: 20px;
-    padding: 0; 
-position: fixed;
+  position: fixed;
+  
+   
+  
+  color: var(--cancel-color1);
+  font-size: 40px;
+  padding: 0;
+  box-shadow: 0 0 10px 1px;
+  background-color: black;
+  border: 0;
 }
 #fill{
  background-color: white;
@@ -257,6 +264,7 @@ padding: 0 10px;
   height: 50px;
   font-size: 25px;
   border-radius: 40px;
+  margin: 0 auto;
 }
 #cart {
   display: none;
@@ -270,7 +278,7 @@ padding: 0 10px;
   padding: 50px 0px 0px 0px;
 }
 #cart-list{
-    width: 500px;
+     max-width: 500px;
     min-width: 200px;
     margin: 0 auto;
 }
@@ -283,7 +291,7 @@ padding: 0 10px;
   justify-content: space-between;
   padding: 3px 50px;
   border-radius: 25px;
-  margin: 0 20px 10px 20px;
+  margin: 0 0 10px 0;
   
 }
 .item-name{
@@ -568,6 +576,9 @@ padding: 0 10px;
 button:active{
     background-color: goldenrod;
 }
+
+
+
 
 
 
